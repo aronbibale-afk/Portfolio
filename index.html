@@ -17,14 +17,36 @@
       background-color: #0d1117;
       color: #e6edf3;
       line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 💫 Animation fond cyber (canvas style "code") */
+    #background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at 20% 20%, #0b3d91 0%, #0d1117 100%);
+      overflow: hidden;
     }
 
     /* 🔷 En-tête */
     header {
       text-align: center;
-      padding: 100px 20px 60px;
-      background: linear-gradient(135deg, #0b3d91, #1f6feb);
+      padding: 120px 20px 60px;
+      background: rgba(15, 23, 42, 0.8);
       color: #fff;
+      position: relative;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #58a6ff;
+      margin-bottom: 15px;
     }
     header h1 {
       font-size: 3em;
@@ -41,12 +63,13 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #161b22;
+      background-color: rgba(22, 27, 34, 0.95);
       display: flex;
       justify-content: center;
       padding: 15px 0;
       z-index: 100;
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
     }
     nav a {
       color: #e6edf3;
@@ -62,12 +85,13 @@
 
     /* 🧩 Sections */
     section {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 100px auto;
       padding: 40px 20px;
-      background-color: #161b22;
+      background-color: rgba(22, 27, 34, 0.9);
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      position: relative;
     }
     h2 {
       color: #58a6ff;
@@ -87,13 +111,18 @@
       margin-left: 25px;
     }
 
-    img {
+    img.project {
       max-width: 100%;
       border-radius: 8px;
-      margin: 10px 0;
+      margin: 15px 0;
+      transition: transform 0.3s;
+      box-shadow: 0 0 10px rgba(88,166,255,0.3);
+    }
+    img.project:hover {
+      transform: scale(1.03);
     }
 
-    /* ⚙️ Pied de page */
+    /* 📞 Pied de page */
     footer {
       text-align: center;
       padding: 30px;
@@ -116,9 +145,29 @@
       display: block;
       height: 60px;
     }
+
+    /* 🌟 Bouton CV */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #58a6ff;
+      color: #0d1117;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 15px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #1f6feb;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
+
+  <!-- 💫 Fond animé -->
+  <div id="background-animation"></div>
 
   <!-- 🔝 Menu de navigation -->
   <nav>
@@ -131,15 +180,19 @@
 
   <!-- 🏠 Section Accueil -->
   <header id="accueil">
+    <img src="https://i.imgur.com/k0yQGdf.png" alt="Photo de profil Jason">
     <h1>Jason Tassoua Libouou</h1>
-    <p>Étudiant en BTS SIO – Option Cybersécurité</p>
+    <p>Étudiant en BTS SIO – Spécialisation Cybersécurité</p>
+    <a href="#" class="btn">📄 Télécharger mon CV</a>
   </header>
 
   <!-- 👤 À propos -->
   <section id="apropos">
     <h2>À propos de moi</h2>
-    <p>Je suis étudiant en BTS SIO (Services Informatiques aux Organisations), spécialisé en Cybersécurité. 
-      Passionné par la sécurité des systèmes et réseaux, j’aime analyser, comprendre et renforcer la protection des infrastructures numériques.</p>
+    <p>Je suis étudiant en BTS SIO, passionné par la cybersécurité, la programmation et les systèmes réseaux. 
+      J’aime comprendre comment fonctionnent les systèmes pour mieux les protéger. 
+      Mon objectif est de devenir expert en sécurité informatique et en gestion des menaces cyber.</p>
+    <img class="project" src="https://i.imgur.com/8x2V5E3.jpeg" alt="Image cybersécurité">
   </section>
 
   <!-- 💻 Projets -->
@@ -147,24 +200,26 @@
     <h2>Mes Projets</h2>
 
     <h3>🔹 Projet 1 : Audit de sécurité réseau</h3>
-    <p>Réalisation d’un audit complet d’un réseau simulé. 
-      Outils utilisés : <strong>Nmap</strong>, <strong>Wireshark</strong> et <strong>Metasploit</strong> pour identifier et corriger les vulnérabilités.</p>
-    <img src="images/projet1.png" alt="Audit de sécurité réseau">
+    <p>Audit complet d’un réseau simulé d’entreprise avec analyse des vulnérabilités. 
+      Outils utilisés : <strong>Nmap</strong>, <strong>Wireshark</strong>, <strong>Metasploit</strong>.</p>
+    <img class="project" src="https://i.imgur.com/5Tw4Jd3.jpeg" alt="Audit réseau">
 
-    <h3>🔹 Projet 2 : Application de gestion sécurisée</h3>
-    <p>Création d’une application web avec <strong>PHP</strong> et <strong>MySQL</strong> intégrant un système d’authentification sécurisé et chiffrement des données.</p>
-    <img src="images/projet2.png" alt="Application sécurisée">
+    <h3>🔹 Projet 2 : Application web sécurisée</h3>
+    <p>Création d’une application de gestion avec <strong>PHP</strong>, <strong>MySQL</strong> et 
+      intégration d’un chiffrement des mots de passe via <strong>bcrypt</strong>.</p>
+    <img class="project" src="https://i.imgur.com/4zGwkNf.jpeg" alt="Application sécurisée">
   </section>
 
   <!-- ⚙️ Compétences -->
   <section id="competences">
     <h2>Compétences</h2>
     <ul>
-      <li>🔐 Sécurité informatique : audit, tests d’intrusion, durcissement des systèmes</li>
+      <li>🔐 Sécurité informatique : audits, pentests, cryptographie</li>
       <li>💻 Développement : HTML, CSS, PHP, Python</li>
-      <li>🌐 Réseaux : configuration routeurs, VLAN, pare-feu</li>
-      <li>🧠 Outils : Wireshark, Nmap, Metasploit, VirtualBox, Kali Linux</li>
+      <li>🌐 Réseaux : configuration Cisco, VLAN, pare-feu, VPN</li>
+      <li>🧠 Outils : Wireshark, Nmap, Kali Linux, VirtualBox, Metasploit</li>
     </ul>
+    <img class="project" src="https://i.imgur.com/6pD3GSh.jpeg" alt="Compétences cyber">
   </section>
 
   <!-- 📞 Contact -->
@@ -178,6 +233,29 @@
   <footer>
     &copy; 2026 Jason Tassoua Libouou – BTS SIO Cybersécurité
   </footer>
+
+  <!-- 🔣 Script fond animé façon "code binaire" -->
+  <script>
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    document.getElementById('background-animation').appendChild(canvas);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const letters = Array(256).join(1).split('');
+    const draw = () => {
+      ctx.fillStyle = 'rgba(13, 17, 23, 0.08)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#58a6ff';
+      letters.map((y_pos, index) => {
+        const text = String.fromCharCode(33 + Math.random() * 94);
+        const x_pos = index * 10;
+        ctx.fillText(text, x_pos, y_pos);
+        letters[index] = y_pos > 758 + Math.random() * 1e4 ? 0 : y_pos + 10;
+      });
+    };
+    setInterval(draw, 60);
+  </script>
 
 </body>
 </html>
