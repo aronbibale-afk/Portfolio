@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Jason Tassoua Libouou | BTS SIO Cybersécurité</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     /* 🌑 Thème général */
     * {
@@ -13,7 +14,7 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #0d1117;
       color: #e6edf3;
       line-height: 1.6;
@@ -21,7 +22,7 @@
       position: relative;
     }
 
-    /* 💫 Animation fond cyber (canvas style "code") */
+    /* 💫 Animation fond cyber */
     #background-animation {
       position: fixed;
       top: 0;
@@ -51,13 +52,14 @@
     header h1 {
       font-size: 3em;
       margin-bottom: 10px;
+      font-weight: 600;
     }
     header p {
       font-size: 1.2em;
       color: #c9d1d9;
     }
 
-    /* 🧭 Menu de navigation (fixe) */
+    /* 🧭 Menu de navigation */
     nav {
       position: fixed;
       top: 0;
@@ -91,7 +93,6 @@
       background-color: rgba(22, 27, 34, 0.9);
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
-      position: relative;
     }
     h2 {
       color: #58a6ff;
@@ -99,11 +100,13 @@
       margin-bottom: 20px;
       display: inline-block;
       padding-bottom: 5px;
+      font-weight: 600;
     }
 
     h3 {
       color: #c9d1d9;
       margin-top: 15px;
+      font-weight: 600;
     }
 
     ul {
@@ -122,30 +125,6 @@
       transform: scale(1.03);
     }
 
-    /* 📞 Pied de page */
-    footer {
-      text-align: center;
-      padding: 30px;
-      background-color: #0b3d91;
-      color: #fff;
-      margin-top: 60px;
-    }
-
-    /* ✨ Animations & transitions */
-    section, header, footer {
-      transition: all 0.3s ease-in-out;
-    }
-    section:hover {
-      transform: scale(1.01);
-    }
-
-    /* 🧠 Espacement pour le menu fixe */
-    body::before {
-      content: "";
-      display: block;
-      height: 60px;
-    }
-
     /* 🌟 Bouton CV */
     .btn {
       display: inline-block;
@@ -162,6 +141,30 @@
       background: #1f6feb;
       color: #fff;
     }
+
+    /* 📞 Pied de page */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #0b3d91;
+      color: #fff;
+      margin-top: 60px;
+    }
+
+    /* ✨ Animation légère */
+    section, header, footer {
+      transition: all 0.3s ease-in-out;
+    }
+    section:hover {
+      transform: scale(1.01);
+    }
+
+    /* 🧠 Espacement pour le menu fixe */
+    body::before {
+      content: "";
+      display: block;
+      height: 60px;
+    }
   </style>
 </head>
 <body>
@@ -174,13 +177,14 @@
     <a href="#accueil">Accueil</a>
     <a href="#apropos">À propos</a>
     <a href="#projets">Projets</a>
+    <a href="#linux">Linux & Virtualisation</a>
     <a href="#competences">Compétences</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- 🏠 Section Accueil -->
+  <!-- 🏠 Accueil -->
   <header id="accueil">
-    <img src="https://i.imgur.com/k0yQGdf.png" alt="Photo de profil Jason">
+    <img src="https://i.imgur.com/k0yQGdf.png" alt="Photo Jason">
     <h1>Jason Tassoua Libouou</h1>
     <p>Étudiant en BTS SIO – Spécialisation Cybersécurité</p>
     <a href="#" class="btn">📄 Télécharger mon CV</a>
@@ -189,37 +193,54 @@
   <!-- 👤 À propos -->
   <section id="apropos">
     <h2>À propos de moi</h2>
-    <p>Je suis étudiant en BTS SIO, passionné par la cybersécurité, la programmation et les systèmes réseaux. 
-      J’aime comprendre comment fonctionnent les systèmes pour mieux les protéger. 
-      Mon objectif est de devenir expert en sécurité informatique et en gestion des menaces cyber.</p>
-    <img class="project" src="https://i.imgur.com/8x2V5E3.jpeg" alt="Image cybersécurité">
+    <p>Je suis étudiant en BTS SIO option Cybersécurité, passionné par la sécurité des systèmes, Linux, et la virtualisation. 
+    J’aime comprendre comment les infrastructures sont construites pour mieux les défendre. 
+    Mon but : devenir un expert en sécurité informatique et réseau.</p>
+    <img class="project" src="https://i.imgur.com/8x2V5E3.jpeg" alt="Cybersécurité illustration">
   </section>
 
   <!-- 💻 Projets -->
   <section id="projets">
     <h2>Mes Projets</h2>
-
     <h3>🔹 Projet 1 : Audit de sécurité réseau</h3>
-    <p>Audit complet d’un réseau simulé d’entreprise avec analyse des vulnérabilités. 
-      Outils utilisés : <strong>Nmap</strong>, <strong>Wireshark</strong>, <strong>Metasploit</strong>.</p>
+    <p>Audit complet d’un réseau simulé avec <strong>Nmap</strong>, <strong>Wireshark</strong> et <strong>Metasploit</strong>. 
+    Rédaction d’un rapport de vulnérabilités et mise en place de correctifs.</p>
     <img class="project" src="https://i.imgur.com/5Tw4Jd3.jpeg" alt="Audit réseau">
 
     <h3>🔹 Projet 2 : Application web sécurisée</h3>
-    <p>Création d’une application de gestion avec <strong>PHP</strong>, <strong>MySQL</strong> et 
-      intégration d’un chiffrement des mots de passe via <strong>bcrypt</strong>.</p>
+    <p>Création d’une application de gestion utilisateurs avec <strong>PHP</strong> et <strong>MySQL</strong>, intégrant un chiffrement des mots de passe et un filtrage d’accès.</p>
     <img class="project" src="https://i.imgur.com/4zGwkNf.jpeg" alt="Application sécurisée">
+  </section>
+
+  <!-- 🐧 Section Linux / Virtualisation -->
+  <section id="linux">
+    <h2>Projets Pratiques – Linux & Virtualisation</h2>
+    <p>Durant ma formation, j’ai travaillé sur plusieurs environnements virtualisés, notamment sous <strong>Ubuntu</strong> et <strong>Kali Linux</strong>, pour réaliser des TP de cybersécurité et d’administration réseau.</p>
+
+    <img class="project" src="https://i.imgur.com/3dPG9SK.jpeg" alt="Ubuntu VM">
+
+    <h3>🧩 Exemple de TP : Configuration d’un serveur Ubuntu</h3>
+    <p>Installation et configuration d’un serveur Ubuntu dans une machine virtuelle via <strong>VirtualBox</strong>.  
+    Mise en place d’un serveur web Apache, gestion des utilisateurs, et surveillance du trafic réseau via <strong>Wireshark</strong>.</p>
+
+    <ul>
+      <li>💾 Système : Ubuntu 22.04 LTS sous VirtualBox</li>
+      <li>🔐 Sécurité : création d’utilisateurs restreints, pare-feu UFW</li>
+      <li>🌐 Réseau : test de connectivité et capture de paquets</li>
+    </ul>
+    <img class="project" src="https://i.imgur.com/kwgDMyV.jpeg" alt="Terminal Linux">
   </section>
 
   <!-- ⚙️ Compétences -->
   <section id="competences">
     <h2>Compétences</h2>
     <ul>
-      <li>🔐 Sécurité informatique : audits, pentests, cryptographie</li>
+      <li>🔐 Sécurité informatique : pentesting, audits, durcissement systèmes</li>
       <li>💻 Développement : HTML, CSS, PHP, Python</li>
-      <li>🌐 Réseaux : configuration Cisco, VLAN, pare-feu, VPN</li>
-      <li>🧠 Outils : Wireshark, Nmap, Kali Linux, VirtualBox, Metasploit</li>
+      <li>🐧 Systèmes : Linux, Ubuntu, Kali, Windows Server</li>
+      <li>🌐 Réseaux : Cisco, VLAN, pare-feu, VPN</li>
+      <li>🧠 Outils : Wireshark, Nmap, Metasploit, VirtualBox</li>
     </ul>
-    <img class="project" src="https://i.imgur.com/6pD3GSh.jpeg" alt="Compétences cyber">
   </section>
 
   <!-- 📞 Contact -->
@@ -229,12 +250,12 @@
     <p>🔗 LinkedIn : <a href="https://www.linkedin.com/in/jason-libouou" target="_blank" style="color:#58a6ff;">Mon profil LinkedIn</a></p>
   </section>
 
-  <!-- 🔚 Pied de page -->
+  <!-- 🔚 Footer -->
   <footer>
     &copy; 2026 Jason Tassoua Libouou – BTS SIO Cybersécurité
   </footer>
 
-  <!-- 🔣 Script fond animé façon "code binaire" -->
+  <!-- 💻 Fond animé code -->
   <script>
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -247,11 +268,11 @@
       ctx.fillStyle = 'rgba(13, 17, 23, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = '#58a6ff';
-      letters.map((y_pos, index) => {
+      letters.map((y, index) => {
         const text = String.fromCharCode(33 + Math.random() * 94);
-        const x_pos = index * 10;
-        ctx.fillText(text, x_pos, y_pos);
-        letters[index] = y_pos > 758 + Math.random() * 1e4 ? 0 : y_pos + 10;
+        const x = index * 10;
+        ctx.fillText(text, x, y);
+        letters[index] = y > 758 + Math.random() * 1e4 ? 0 : y + 10;
       });
     };
     setInterval(draw, 60);
@@ -259,3 +280,4 @@
 
 </body>
 </html>
+
