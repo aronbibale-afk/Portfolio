@@ -2,106 +2,182 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio - Lucas Martin | BTS SIO Cybersécurité</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Jason Tassoua Libouou | BTS SIO Cybersécurité</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+    /* 🌑 Thème général */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d1117;
+      color: #e6edf3;
+      line-height: 1.6;
+    }
+
+    /* 🔷 En-tête */
     header {
-      background-color: #003366;
-      color: #fff;
-      padding: 30px 20px;
       text-align: center;
+      padding: 100px 20px 60px;
+      background: linear-gradient(135deg, #0b3d91, #1f6feb);
+      color: #fff;
     }
     header h1 {
-      margin: 0;
-      font-size: 2em;
+      font-size: 3em;
+      margin-bottom: 10px;
     }
     header p {
-      margin: 5px 0 0;
-      font-size: 1.1em;
+      font-size: 1.2em;
+      color: #c9d1d9;
     }
+
+    /* 🧭 Menu de navigation (fixe) */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #161b22;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    nav a {
+      color: #e6edf3;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #58a6ff;
+    }
+
+    /* 🧩 Sections */
     section {
-      padding: 20px;
       max-width: 900px;
-      margin: 0 auto;
+      margin: 100px auto;
+      padding: 40px 20px;
+      background-color: #161b22;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
     h2 {
-      color: #003366;
-      border-bottom: 2px solid #003366;
+      color: #58a6ff;
+      border-bottom: 2px solid #58a6ff;
+      margin-bottom: 20px;
+      display: inline-block;
       padding-bottom: 5px;
     }
+
+    h3 {
+      color: #c9d1d9;
+      margin-top: 15px;
+    }
+
     ul {
       list-style: square;
-      margin-left: 20px;
+      margin-left: 25px;
     }
+
     img {
       max-width: 100%;
+      border-radius: 8px;
       margin: 10px 0;
-      border: 1px solid #ccc;
     }
+
+    /* ⚙️ Pied de page */
     footer {
       text-align: center;
-      background-color: #003366;
+      padding: 30px;
+      background-color: #0b3d91;
       color: #fff;
-      padding: 15px 20px;
-      margin-top: 20px;
+      margin-top: 60px;
     }
-    a {
-      color: #003366;
-      text-decoration: none;
+
+    /* ✨ Animations & transitions */
+    section, header, footer {
+      transition: all 0.3s ease-in-out;
     }
-    a:hover {
-      text-decoration: underline;
+    section:hover {
+      transform: scale(1.01);
+    }
+
+    /* 🧠 Espacement pour le menu fixe */
+    body::before {
+      content: "";
+      display: block;
+      height: 60px;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Lucas Martin</h1>
-  <p>Portfolio BTS SIO – Option Cybersécurité</p>
-</header>
+  <!-- 🔝 Menu de navigation -->
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#apropos">À propos</a>
+    <a href="#projets">Projets</a>
+    <a href="#competences">Compétences</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<section>
-  <h2>À propos de moi</h2>
-  <p>Étudiant en BTS SIO option Cybersécurité. Passionné par la sécurité informatique et la protection des données, je présente ici mes projets et compétences.</p>
-</section>
+  <!-- 🏠 Section Accueil -->
+  <header id="accueil">
+    <h1>Jason Tassoua Libouou</h1>
+    <p>Étudiant en BTS SIO – Option Cybersécurité</p>
+  </header>
 
-<section>
-  <h2>Projets</h2>
-  <h3>Projet 1 : Analyse de vulnérabilité</h3>
-  <p>Réalisation d’un rapport d’analyse de vulnérabilité sur un réseau d’entreprise fictif en utilisant Nmap et Wireshark.</p>
-  <img src="images/projet1.png" alt="Capture Projet 1">
+  <!-- 👤 À propos -->
+  <section id="apropos">
+    <h2>À propos de moi</h2>
+    <p>Je suis étudiant en BTS SIO (Services Informatiques aux Organisations), spécialisé en Cybersécurité. 
+      Passionné par la sécurité des systèmes et réseaux, j’aime analyser, comprendre et renforcer la protection des infrastructures numériques.</p>
+  </section>
 
-  <h3>Projet 2 : Simulation de firewall</h3>
-  <p>Création d’une simulation de firewall pour filtrer le trafic réseau avec règles personnalisées.</p>
-  <img src="images/projet2.png" alt="Capture Projet 2">
-</section>
+  <!-- 💻 Projets -->
+  <section id="projets">
+    <h2>Mes Projets</h2>
 
-<section>
-  <h2>Compétences</h2>
-  <ul>
-    <li>Analyse et sécurité réseau (Nmap, Wireshark)</li>
-    <li>Administration système Windows/Linux</li>
-    <li>Scripting et automatisation (Python, Bash)</li>
-    <li>Connaissances en cryptographie et sécurité web</li>
-  </ul>
-</section>
+    <h3>🔹 Projet 1 : Audit de sécurité réseau</h3>
+    <p>Réalisation d’un audit complet d’un réseau simulé. 
+      Outils utilisés : <strong>Nmap</strong>, <strong>Wireshark</strong> et <strong>Metasploit</strong> pour identifier et corriger les vulnérabilités.</p>
+    <img src="images/projet1.png" alt="Audit de sécurité réseau">
 
-<section>
-  <h2>Contact</h2>
-  <p>Email : lucasmartin@gmail.com</p>
-  <p>LinkedIn : <a href="https://www.linkedin.com/in/lucasmartin">Mon profil LinkedIn</a></p>
-</section>
+    <h3>🔹 Projet 2 : Application de gestion sécurisée</h3>
+    <p>Création d’une application web avec <strong>PHP</strong> et <strong>MySQL</strong> intégrant un système d’authentification sécurisé et chiffrement des données.</p>
+    <img src="images/projet2.png" alt="Application sécurisée">
+  </section>
 
-<footer>
-  &copy; 2026 Lucas Martin – BTS SIO Cybersécurité
-</footer>
+  <!-- ⚙️ Compétences -->
+  <section id="competences">
+    <h2>Compétences</h2>
+    <ul>
+      <li>🔐 Sécurité informatique : audit, tests d’intrusion, durcissement des systèmes</li>
+      <li>💻 Développement : HTML, CSS, PHP, Python</li>
+      <li>🌐 Réseaux : configuration routeurs, VLAN, pare-feu</li>
+      <li>🧠 Outils : Wireshark, Nmap, Metasploit, VirtualBox, Kali Linux</li>
+    </ul>
+  </section>
+
+  <!-- 📞 Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📧 Email : <a href="mailto:jason.libouou@gmail.com" style="color:#58a6ff;">jason.libouou@gmail.com</a></p>
+    <p>🔗 LinkedIn : <a href="https://www.linkedin.com/in/jason-libouou" target="_blank" style="color:#58a6ff;">Mon profil LinkedIn</a></p>
+  </section>
+
+  <!-- 🔚 Pied de page -->
+  <footer>
+    &copy; 2026 Jason Tassoua Libouou – BTS SIO Cybersécurité
+  </footer>
 
 </body>
 </html>
