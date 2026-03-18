@@ -22,22 +22,8 @@
       background: radial-gradient(circle at 20% 20%, #0b3d91 0%, #0d1117 100%);
       overflow: hidden;
     }
-    header {
-      text-align: center;
-      padding: 120px 20px 60px;
-      background: rgba(15, 23, 42, 0.8);
-      color: #fff;
-      position: relative;
-    }
-    header img {
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      border: 3px solid #58a6ff;
-      margin-bottom: 15px;
-    }
-    header h1 { font-size: 3em; margin-bottom: 10px; font-weight: 600; }
-    header p { font-size: 1.2em; color: #c9d1d9; }
 
+    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; width: 100%;
       background-color: rgba(22, 27, 34, 0.95);
@@ -50,16 +36,46 @@
       color: #e6edf3; text-decoration: none;
       margin: 0 20px; font-weight: bold;
       letter-spacing: 0.5px; transition: color 0.3s;
+      cursor: pointer;
     }
     nav a:hover { color: #58a6ff; }
+    nav a.active { color: #58a6ff; }
 
+    /* ── PAGES ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── HEADER (accueil) ── */
+    header {
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: rgba(15, 23, 42, 0.8);
+      color: #fff;
+      position: relative;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    header img {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 3px solid #58a6ff;
+      margin-bottom: 15px;
+    }
+    header h1 { font-size: 3em; margin-bottom: 10px; font-weight: 600; }
+    header p { font-size: 1.2em; color: #c9d1d9; }
+
+    /* ── SECTIONS ── */
     section {
       max-width: 1000px; margin: 100px auto;
       padding: 40px 30px;
       background-color: rgba(22, 27, 34, 0.9);
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      transition: all 0.3s ease-in-out;
     }
+    section:hover { transform: scale(1.005); }
+
     h2 {
       color: #58a6ff;
       border-bottom: 2px solid #58a6ff;
@@ -88,15 +104,13 @@
       grid-template-columns: 1fr 1fr;
       gap: 22px;
     }
-
     .project-card {
       background: rgba(13, 17, 23, 0.85);
       border: 1px solid rgba(88, 166, 255, 0.18);
       border-radius: 12px;
       overflow: hidden;
       transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
+      display: flex; flex-direction: column;
     }
     .project-card:hover {
       transform: translateY(-6px);
@@ -107,31 +121,19 @@
       grid-column: 1 / -1;
       flex-direction: row;
     }
-    .project-card.wide .project-thumb {
-      width: 45%;
-      flex-shrink: 0;
-    }
-    .project-card.wide .project-thumb img {
-      height: 100%;
-      max-height: 400px;
-    }
+    .project-card.wide .project-thumb { width: 45%; flex-shrink: 0; }
+    .project-card.wide .project-thumb img { height: 100%; max-height: 400px; }
 
     .project-thumb { overflow: hidden; }
     .project-thumb img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      display: block;
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
       transition: transform 0.4s;
     }
     .project-card:hover .project-thumb img { transform: scale(1.05); }
 
     .project-body { padding: 20px 22px; flex: 1; }
-
-    .project-tags {
-      display: flex; flex-wrap: wrap;
-      gap: 7px; margin-bottom: 12px;
-    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
     .tag {
       background: rgba(88, 166, 255, 0.1);
       border: 1px solid rgba(88, 166, 255, 0.3);
@@ -140,22 +142,9 @@
       padding: 3px 10px; border-radius: 20px;
       letter-spacing: 0.4px;
     }
-
-    .project-body h3 {
-      color: #e6edf3; font-size: 16px;
-      font-weight: 600; margin-bottom: 10px;
-    }
-    .project-body p {
-      color: #8b949e; font-size: 13.5px;
-      line-height: 1.75; margin-bottom: 14px;
-    }
-
-    .project-details {
-      list-style: none;
-      padding: 0; margin: 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding-top: 12px;
-    }
+    .project-body h3 { color: #e6edf3; font-size: 16px; font-weight: 600; margin-bottom: 10px; }
+    .project-body p { color: #8b949e; font-size: 13.5px; line-height: 1.75; margin-bottom: 14px; }
+    .project-details { list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px; }
     .project-details li {
       font-size: 13px; color: #c9d1d9;
       padding: 5px 0;
@@ -179,11 +168,36 @@
     }
     .skill-block:hover { border-color: #58a6ff; transform: translateY(-3px); }
     .skill-block .skill-icon { font-size: 26px; margin-bottom: 10px; }
-    .skill-block h4 {
-      color: #58a6ff; font-size: 12px; font-weight: 600;
-      margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.6px;
-    }
+    .skill-block h4 { color: #58a6ff; font-size: 12px; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.6px; }
     .skill-block p { color: #8b949e; font-size: 13px; line-height: 1.6; }
+
+    /* ── VEILLE ── */
+    .veille-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .veille-card {
+      background: rgba(13, 17, 23, 0.85);
+      border: 1px solid rgba(88, 166, 255, 0.18);
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .veille-card:hover {
+      transform: translateY(-6px);
+      border-color: #58a6ff;
+      box-shadow: 0 0 28px rgba(88, 166, 255, 0.22);
+    }
+    .veille-card .veille-icon { font-size: 28px; margin-bottom: 12px; }
+    .veille-card h3 { color: #e6edf3; font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+    .veille-card p { color: #8b949e; font-size: 13.5px; line-height: 1.75; }
+    .veille-card a {
+      display: inline-block; margin-top: 14px;
+      font-size: 12px; color: #58a6ff;
+      font-weight: 600; text-decoration: none;
+    }
+    .veille-card a:hover { text-decoration: underline; }
 
     /* ── CONTACT ── */
     .contact-links { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
@@ -205,6 +219,7 @@
     .contact-link-text .label { color: #8b949e; font-size: 12px; margin-bottom: 2px; }
     .contact-link-text .value { font-size: 15px; font-weight: 500; }
 
+    /* ── BTN ── */
     .btn {
       display: inline-block;
       padding: 10px 20px;
@@ -215,21 +230,19 @@
     }
     .btn:hover { background: #1f6feb; color: #fff; }
 
+    /* ── FOOTER ── */
     footer {
       text-align: center; padding: 30px;
       background-color: #0b3d91;
       color: #fff; margin-top: 60px;
     }
 
-    section, header, footer { transition: all 0.3s ease-in-out; }
-    section:hover { transform: scale(1.005); }
-    body::before { content: ""; display: block; height: 60px; }
-
     @media (max-width: 700px) {
       .projects-grid { grid-template-columns: 1fr; }
       .project-card.wide { flex-direction: column; }
       .project-card.wide .project-thumb { width: 100%; }
       .about-inner { grid-template-columns: 1fr; }
+      .veille-grid { grid-template-columns: 1fr; }
       header h1 { font-size: 2em; }
       nav a { margin: 0 10px; font-size: 13px; }
     }
@@ -240,162 +253,250 @@
   <div id="background-animation"></div>
 
   <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#apropos">À propos</a>
-    <a href="#projets">Projets</a>
-    <a href="#competences">Compétences</a>
-    <a href="#contact">Contact</a>
+    <a onclick="showPage('accueil')" class="active" id="nav-accueil">Accueil</a>
+    <a onclick="showPage('apropos')" id="nav-apropos">À propos</a>
+    <a onclick="showPage('projets')" id="nav-projets">Projets</a>
+    <a onclick="showPage('competences')" id="nav-competences">Compétences</a>
+    <a onclick="showPage('veille')" id="nav-veille">Veille</a>
+    <a onclick="showPage('contact')" id="nav-contact">Contact</a>
   </nav>
 
-  <header id="accueil">
-    <img src="https://i.imgur.com/k0yQGdf.png" alt="Photo Jason">
-    <h1>Jason Tassoua Libouou</h1>
-    <p>Étudiant en BTS SIO – Spécialisation Cybersécurité</p>
-    <a href="#" class="btn">📄 Télécharger mon CV</a>
-  </header>
+  <!-- ══════════════════ PAGE ACCUEIL ══════════════════ -->
+  <div class="page active" id="page-accueil">
+    <header>
+      <img src="https://i.imgur.com/k0yQGdf.png" alt="Photo Jason">
+      <h1>Jason Tassoua Libouou</h1>
+      <p>Étudiant en BTS SIO – Spécialisation Cybersécurité</p>
+      <a href="#" class="btn">📄 Télécharger mon CV</a>
+    </header>
+    <footer>&copy; 2026 Jason Tassoua Libouou – BTS SIO Cybersécurité</footer>
+  </div>
 
-  <section id="apropos">
-    <h2>À propos de moi</h2>
-    <div class="about-inner">
-      <div class="about-text">
-        <p>Je suis étudiant en BTS SIO option Cybersécurité, passionné par la sécurité des systèmes, Linux et l'administration réseau.<br><br>
-        J'aime comprendre comment les infrastructures sont construites pour mieux les défendre. Mon but : devenir un expert en sécurité informatique capable d'intervenir aussi bien sur du code que sur des infrastructures physiques.</p>
-      </div>
-      <img src="https://i.imgur.com/8x2V5E3.jpeg" alt="Cybersécurité">
-    </div>
-  </section>
-
-  <section id="projets">
-    <h2>Réalisations Techniques</h2>
-    <div class="projects-grid">
-
-      <div class="project-card wide">
-        <div class="project-thumb">
-          <img src="https://i.imgur.com/kK8O3Gk.jpeg" alt="Configuration Cisco">
-        </div>
-        <div class="project-body">
-          <div class="project-tags">
-            <span class="tag">Cisco IOS</span>
-            <span class="tag">Réseau</span>
-            <span class="tag">Packet Tracer</span>
-            <span class="tag">CLI</span>
+  <!-- ══════════════════ PAGE À PROPOS ══════════════════ -->
+  <div class="page" id="page-apropos">
+    <div style="padding-top:60px;">
+      <section>
+        <h2>À propos de moi</h2>
+        <div class="about-inner">
+          <div class="about-text">
+            <p>Je suis étudiant en BTS SIO option Cybersécurité, passionné par la sécurité des systèmes, Linux et l'administration réseau.<br><br>
+            J'aime comprendre comment les infrastructures sont construites pour mieux les défendre. Mon but : devenir un expert en sécurité informatique capable d'intervenir aussi bien sur du code que sur des infrastructures physiques.</p>
           </div>
-          <h3>🌐 Interconnexion de réseaux via Routeurs Cisco</h3>
-          <p>Mise en place d'une infrastructure réseau complète reliant plusieurs LAN via des routeurs configurés en ligne de commande (CLI). Gestion de l'adressage IP, de l'activation des interfaces et du routage de paquets.</p>
-          <ul class="project-details">
-            <li>⌨️ Configuration via terminal Cisco IOS</li>
-            <li>⚡ Activation d'interfaces & adressage IP statique</li>
-            <li>🛤️ Analyse des tables de routage (C & D)</li>
-            <li>✅ Test de connectivité (Ping & Résolution ARP)</li>
-            <li>💾 Sauvegarde en mémoire NVRAM</li>
-          </ul>
+          <img src="https://i.imgur.com/8x2V5E3.jpeg" alt="Cybersécurité">
         </div>
-      </div>
+      </section>
+      <footer>&copy; 2026 Jason Tassoua Libouou – BTS SIO Cybersécurité</footer>
+    </div>
+  </div>
 
-      <div class="project-card">
-        <div class="project-thumb">
-          <img src="https://i.imgur.com/5Tw4Jd3.jpeg" alt="Audit réseau">
-        </div>
-        <div class="project-body">
-          <div class="project-tags">
-            <span class="tag">Pentesting</span>
-            <span class="tag">Réseau</span>
-            <span class="tag">Rapport</span>
+  <!-- ══════════════════ PAGE PROJETS ══════════════════ -->
+  <div class="page" id="page-projets">
+    <div style="padding-top:60px;">
+      <section>
+        <h2>Réalisations Techniques</h2>
+        <div class="projects-grid">
+
+          <div class="project-card wide">
+            <div class="project-thumb">
+              <img src="https://i.imgur.com/kK8O3Gk.jpeg" alt="Configuration Cisco">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">Cisco IOS</span>
+                <span class="tag">Réseau</span>
+                <span class="tag">Packet Tracer</span>
+                <span class="tag">CLI</span>
+              </div>
+              <h3>🌐 Interconnexion de réseaux via Routeurs Cisco</h3>
+              <p>Mise en place d'une infrastructure réseau complète reliant plusieurs LAN via des routeurs configurés en ligne de commande (CLI). Gestion de l'adressage IP, de l'activation des interfaces et du routage de paquets.</p>
+              <ul class="project-details">
+                <li>⌨️ Configuration via terminal Cisco IOS</li>
+                <li>⚡ Activation d'interfaces & adressage IP statique</li>
+                <li>🛤️ Analyse des tables de routage (C & D)</li>
+                <li>✅ Test de connectivité (Ping & Résolution ARP)</li>
+                <li>💾 Sauvegarde en mémoire NVRAM</li>
+              </ul>
+            </div>
           </div>
-          <h3>🔍 Audit de sécurité réseau</h3>
-          <p>Audit complet d'un réseau simulé : identification des vulnérabilités, exploitation contrôlée et rédaction d'un rapport de correctifs.</p>
-          <ul class="project-details">
-            <li>🗺️ Nmap — Scan de ports & services</li>
-            <li>📡 Wireshark — Analyse de trafic</li>
-            <li>💣 Metasploit — Tests d'exploitation</li>
-          </ul>
-        </div>
-      </div>
 
-      <div class="project-card">
-        <div class="project-thumb">
-          <img src="https://i.imgur.com/4zGwkNf.jpeg" alt="Application sécurisée">
-        </div>
-        <div class="project-body">
-          <div class="project-tags">
-            <span class="tag">PHP</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">Sécurité Web</span>
+          <div class="project-card">
+            <div class="project-thumb">
+              <img src="https://i.imgur.com/5Tw4Jd3.jpeg" alt="Audit réseau">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">Pentesting</span>
+                <span class="tag">Réseau</span>
+                <span class="tag">Rapport</span>
+              </div>
+              <h3>🔍 Audit de sécurité réseau</h3>
+              <p>Audit complet d'un réseau simulé : identification des vulnérabilités, exploitation contrôlée et rédaction d'un rapport de correctifs.</p>
+              <ul class="project-details">
+                <li>🗺️ Nmap — Scan de ports & services</li>
+                <li>📡 Wireshark — Analyse de trafic</li>
+                <li>💣 Metasploit — Tests d'exploitation</li>
+              </ul>
+            </div>
           </div>
-          <h3>🛡️ Application web sécurisée</h3>
-          <p>Développement d'une application de gestion utilisateurs avec authentification sécurisée et protection contre les injections SQL.</p>
-          <ul class="project-details">
-            <li>🔑 Hachage bcrypt des mots de passe</li>
-            <li>🚫 Protection XSS & injections SQL</li>
-            <li>🗄️ Base de données MySQL</li>
-          </ul>
+
+          <div class="project-card">
+            <div class="project-thumb">
+              <img src="https://i.imgur.com/4zGwkNf.jpeg" alt="Application sécurisée">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Sécurité Web</span>
+              </div>
+              <h3>🛡️ Application web sécurisée</h3>
+              <p>Développement d'une application de gestion utilisateurs avec authentification sécurisée et protection contre les injections SQL.</p>
+              <ul class="project-details">
+                <li>🔑 Hachage bcrypt des mots de passe</li>
+                <li>🚫 Protection XSS & injections SQL</li>
+                <li>🗄️ Base de données MySQL</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
-      </div>
-
+      </section>
+      <footer>&copy; 2026 Jason Tassoua Libouou – BTS SIO Cybersécurité</footer>
     </div>
-  </section>
+  </div>
 
-  <section id="competences">
-    <h2>Compétences</h2>
-    <div class="skills-grid">
-      <div class="skill-block">
-        <div class="skill-icon">🔐</div>
-        <h4>Cybersécurité</h4>
-        <p>Pentesting, audits, durcissement des systèmes, analyse de vulnérabilités</p>
-      </div>
-      <div class="skill-block">
-        <div class="skill-icon">🌐</div>
-        <h4>Réseaux</h4>
-        <p>Cisco IOS, CLI, routage, VLAN, adressage IP, Packet Tracer</p>
-      </div>
-      <div class="skill-block">
-        <div class="skill-icon">🐧</div>
-        <h4>Systèmes</h4>
-        <p>Linux (Ubuntu, Kali), Windows Server, Bash, administration</p>
-      </div>
-      <div class="skill-block">
-        <div class="skill-icon">💻</div>
-        <h4>Développement</h4>
-        <p>HTML, CSS, PHP, Python — applications web sécurisées</p>
-      </div>
-      <div class="skill-block">
-        <div class="skill-icon">🧰</div>
-        <h4>Outils</h4>
-        <p>Wireshark, Nmap, Metasploit, VirtualBox</p>
-      </div>
-      <div class="skill-block">
-        <div class="skill-icon">☁️</div>
-        <h4>Virtualisation</h4>
-        <p>Gestion de VM sous VirtualBox, environnements isolés</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-links">
-      <a href="mailto:aronbibale@gmail.com" class="contact-link">
-        <span class="icon">📧</span>
-        <div class="contact-link-text">
-          <span class="label">Email</span>
-          <span class="value">aronbibale@gmail.com</span>
+  <!-- ══════════════════ PAGE COMPÉTENCES ══════════════════ -->
+  <div class="page" id="page-competences">
+    <div style="padding-top:60px;">
+      <section>
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+          <div class="skill-block">
+            <div class="skill-icon">🔐</div>
+            <h4>Cybersécurité</h4>
+            <p>Pentesting, audits, durcissement des systèmes, analyse de vulnérabilités</p>
+          </div>
+          <div class="skill-block">
+            <div class="skill-icon">🌐</div>
+            <h4>Réseaux</h4>
+            <p>Cisco IOS, CLI, routage, VLAN, adressage IP, Packet Tracer</p>
+          </div>
+          <div class="skill-block">
+            <div class="skill-icon">🐧</div>
+            <h4>Systèmes</h4>
+            <p>Linux (Ubuntu, Kali), Windows Server, Bash, administration</p>
+          </div>
+          <div class="skill-block">
+            <div class="skill-icon">💻</div>
+            <h4>Développement</h4>
+            <p>HTML, CSS, PHP, Python — applications web sécurisées</p>
+          </div>
+          <div class="skill-block">
+            <div class="skill-icon">🧰</div>
+            <h4>Outils</h4>
+            <p>Wireshark, Nmap, Metasploit, VirtualBox</p>
+          </div>
+          <div class="skill-block">
+            <div class="skill-icon">☁️</div>
+            <h4>Virtualisation</h4>
+            <p>Gestion de VM sous VirtualBox, environnements isolés</p>
+          </div>
         </div>
-      </a>
-      <a href="https://www.linkedin.com/in/jason-libouou" target="_blank" class="contact-link">
-        <span class="icon">🔗</span>
-        <div class="contact-link-text">
-          <span class="label">LinkedIn</span>
-          <span class="value">linkedin.com/in/jason-libouou</span>
-        </div>
-      </a>
+      </section>
+      <footer>&copy; 2026 Jason Tassoua Libouou – BTS SIO Cybersécurité</footer>
     </div>
-  </section>
+  </div>
 
-  <footer>
-    &copy; 2026 Jason Tassoua Libouou – BTS SIO Cybersécurité
-  </footer>
+  <!-- ══════════════════ PAGE VEILLE ══════════════════ -->
+  <div class="page" id="page-veille">
+    <div style="padding-top:60px;">
+      <section>
+        <h2>Veille Technologique</h2>
+        <div class="veille-grid">
+
+          <div class="veille-card">
+            <div class="veille-icon">🛡️</div>
+            <h3>Ransomware LockBit 3.0 – Analyse de la menace</h3>
+            <p>LockBit 3.0 est l'un des ransomwares les plus actifs depuis 2023. Il cible les entreprises via des accès RDP exposés et des vulnérabilités non corrigées. Son modèle RaaS (Ransomware-as-a-Service) le rend particulièrement difficile à attribuer.</p>
+            <a href="https://www.cisa.gov" target="_blank">🔗 Source : CISA.gov</a>
+          </div>
+
+          <div class="veille-card">
+            <div class="veille-icon">🔓</div>
+            <h3>CVE-2024-21762 – Faille critique Fortinet</h3>
+            <p>Cette vulnérabilité critique (CVSS 9.8) dans FortiOS permet une exécution de code à distance sans authentification. Elle a été massivement exploitée dans des attaques ciblant des réseaux d'entreprise en 2024.</p>
+            <a href="https://www.cert.ssi.gouv.fr" target="_blank">🔗 Source : ANSSI / CERT-FR</a>
+          </div>
+
+          <div class="veille-card">
+            <div class="veille-icon">🤖</div>
+            <h3>IA et Cybersécurité – Les nouvelles menaces</h3>
+            <p>L'intelligence artificielle est désormais utilisée pour générer des campagnes de phishing ultra-personnalisées et automatiser la découverte de vulnérabilités. Les équipes de défense doivent intégrer des outils IA pour rester compétitives.</p>
+            <a href="https://www.enisa.europa.eu" target="_blank">🔗 Source : ENISA</a>
+          </div>
+
+          <div class="veille-card">
+            <div class="veille-icon">🌐</div>
+            <h3>Zero Trust – L'architecture de sécurité moderne</h3>
+            <p>Le modèle Zero Trust remplace la confiance implicite liée au réseau interne par une vérification systématique de chaque utilisateur et appareil. Il devient incontournable face aux menaces internes.</p>
+            <a href="https://www.nist.gov" target="_blank">🔗 Source : NIST SP 800-207</a>
+          </div>
+
+        </div>
+      </section>
+      <footer>&copy; 2026 Jason Tassoua Libouou – BTS SIO Cybersécurité</footer>
+    </div>
+  </div>
+
+  <!-- ══════════════════ PAGE CONTACT ══════════════════ -->
+  <div class="page" id="page-contact">
+    <div style="padding-top:60px;">
+      <section>
+        <h2>Contact</h2>
+        <div class="contact-links">
+          <a href="mailto:aronbibale@gmail.com" class="contact-link">
+            <span class="icon">📧</span>
+            <div class="contact-link-text">
+              <span class="label">Email</span>
+              <span class="value">aronbibale@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/jason-libouou" target="_blank" class="contact-link">
+            <span class="icon">🔗</span>
+            <div class="contact-link-text">
+              <span class="label">LinkedIn</span>
+              <span class="value">linkedin.com/in/jason-libouou</span>
+            </div>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="icon">📄</span>
+            <div class="contact-link-text">
+              <span class="label">CV</span>
+              <span class="value">Télécharger mon CV (PDF)</span>
+            </div>
+          </a>
+        </div>
+      </section>
+      <footer>&copy; 2026 Jason Tassoua Libouou – BTS SIO Cybersécurité</footer>
+    </div>
+  </div>
 
   <script>
+    // ── NAVIGATION ENTRE PAGES ──
+    function showPage(id) {
+      // Cacher toutes les pages
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      // Désactiver tous les liens nav
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      // Afficher la page demandée
+      document.getElementById('page-' + id).classList.add('active');
+      // Activer le bon lien nav
+      document.getElementById('nav-' + id).classList.add('active');
+      // Remonter en haut
+      window.scrollTo(0, 0);
+    }
+
+    // ── ANIMATION MATRIX ──
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     document.getElementById('background-animation').appendChild(canvas);
@@ -418,5 +519,6 @@
     };
     setInterval(draw, 60);
   </script>
+
 </body>
 </html>
